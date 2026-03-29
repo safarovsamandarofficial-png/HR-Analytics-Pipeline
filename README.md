@@ -1,0 +1,98 @@
+
+# 📊 HR Analytics Dashboard
+**Executive Summary**: _An HR Analytics pipeline built by a Data analyst to identify payroll risks and workforce ROI._
+
+---
+## 📌 Overview
+
+This project analyzes a **clean employee dataset** to generate **strategic business insights** for workforce planning, compensation fairness, and performance management. 
+
+---
+# 🚀 Features
+
+- **Departmental Insights**: Attrition risk, salary distribution, performance alignment
+- **Regional Insights**: Pay equity vs performance across states
+- **Workforce Composition**: Remote vs in‑office, active vs inactive vs pending
+- **Career Progression**: Tenure and seniority impact on performance
+---
+# 📈 Key Analyses
+
+1. **Departmental Attrition Risk** → % inactive employees by department
+2. **Regional Pay Equity** → Salary vs performance across regions
+3. **Seniority ROI** → Performance vs salary by seniority level
+4. **Pending Workforce Pipeline Health** → % pending employees by department/region
+5. **Retention Risk Audit** → High performers underpaid relative to median
+---
+
+# 🎯 Recommendations
+
+**Top 3 Issues**
+
+- Fix underpayment of high performers
+- Address attrition in Finance & Admin
+- Streamline onboarding in Cloud Tech & Admin
+
+**Top 2 Opportunities**
+
+- Adjust pay equity in Nevada
+- Invest in seniority level 5 employees (highest ROI group)
+
+---
+# 📂 Project Structure
+
+├── analytics                                          # Contains main analytics functions.
+├──  Clean_Employee_dataset.csv          # Contains raw and clean dataset with charts.
+├──  HR_data_workbook.xlsx                    # Contains raw and clean dataset with charts.
+├──  basic_cleaning.py                            # Contains general cleaning functions
+├──  adv_cleaning.xlsx                            # Contains imputing, feature engineering etc.
+├── data_pipeline.py                              # Executive script
+└── README.md                                    # Project documentation
+
+---
+# ⚙️ Tech Stack
+
+- **Python** (Pandas, NumPy) for analysis.
+- **Excel** for dashboard visualization.
+
+---
+# 📌 How to Use
+
+1. Load the dataset (`Clean_Employee_dataset.csv`).
+2. Run **data_pipeline.py** to generate full report.
+3. Open Excel for visualization.
+4. Review insights report for recommendations.
+---
+
+# Screenshots
+
+Before:
+![Before](/images/before.jpg)
+
+After:
+![After](/images/after.jpg)
+
+
+Average Performance and Salary by Region chart:
+![Chart_1](/images/chart1.png)
+
+
+Departmental Attrition Risk chart:
+![Chart_2](/images/chart2.png)
+
+
+### Charts
+
+
+
+# 🧠 Technical Challenges & Solutions
+
+#### **1. Handling Deprecation & Future-Proofing**
+
+During the development of the grouping logic, I encountered a `FutureWarning` regarding the `observed` parameter in the `groupby` function.
+
+- **The Issue:** Pandas is shifting its default behavior for categorical groupings, which could lead to unexpected results (like empty categories appearing in the output) in future versions.
+    
+- **The Solution:** I explicitly implemented `observed=True` within the `pd.cut` aggregation. This ensures the analysis only returns categories present in the data, making the script more robust and silencing non-critical console noise.
+#### **2. Logic over Loops**
+
+Instead of using inefficient `for-loops` to categorize employee tenure, I implemented **vectorized binning** using `pd.cut()`. This approach allows the script to scale to datasets with hundreds of thousands of rows without a significant performance hit.
