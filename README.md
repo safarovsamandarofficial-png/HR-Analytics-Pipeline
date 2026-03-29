@@ -40,13 +40,16 @@ This project analyzes a **clean employee dataset** to generate **strategic busin
 ---
 # 📂 Project Structure
 
-├── analytics                                          # Contains main analytics functions.
-├──  Clean_Employee_dataset.csv          # Contains raw and clean dataset with charts.
-├──  HR_data_workbook.xlsx                    # Contains raw and clean dataset with charts.
-├──  basic_cleaning.py                            # Contains general cleaning functions
-├──  adv_cleaning.xlsx                            # Contains imputing, feature engineering etc.
-├── data_pipeline.py                              # Executive script
-└── README.md                                    # Project documentation
+# 📂 Project Structure
+
+```text
+├── analytics/              # Modular analytics functions
+├── basic_cleaning.py       # Standard data cleaning logic
+├── adv_cleaning.py         # Imputation & feature engineering
+├── data_pipeline.py        # Executive script (Main Entry)
+├── HR_Data_workbook.xlsx   # Final Dashboard & Visualization
+├── Clean_Employee_dataset.csv 
+└── README.md               # Documentation
 
 ---
 # ⚙️ Tech Stack
