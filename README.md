@@ -96,3 +96,12 @@ During the development of the grouping logic, I encountered a `FutureWarning` re
 #### **2. Logic over Loops**
 
 Instead of using inefficient `for-loops` to categorize employee tenure, I implemented **vectorized binning** using `pd.cut()`. This approach allows the script to scale to datasets with hundreds of thousands of rows without a significant performance hit.
+
+#### 3. Preserving Data Integrity (The Scientific Notation Trap)
+During the diagnostic phase, I identified that phone numbers were being erroneously treated as float64 types, resulting in Scientific Notation (e.g., 4.94e+09) and loss of leading zeros.
+
+The Issue: Pandas automatically infers long numeric strings as floats, which distorts categorical identifiers.
+
+The Solution: I implemented a two-layer fix. First, I forced the dtype to str during the initial read_csv to prevent float conversion at the source. Second, I built a robust cleaning function using regex to strip artifacts like .0 and non-digit characters.
+
+The Impact: This ensured 100% accuracy for employee contact data and removed non-analytical columns from numeric audits.
