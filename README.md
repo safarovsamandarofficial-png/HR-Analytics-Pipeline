@@ -38,7 +38,6 @@ This project analyzes a **clean employee dataset** to generate **strategic busin
 - Invest in seniority level 5 employees (highest ROI group)
 
 ---
-# 📂 Project Structure
 
 # 📂 Project Structure
 
@@ -50,7 +49,7 @@ This project analyzes a **clean employee dataset** to generate **strategic busin
 ├── HR_Data_workbook.xlsx   # Final Dashboard & Visualization
 ├── Clean_Employee_dataset.csv 
 └── README.md               # Documentation
-
+```
 ---
 # ⚙️ Tech Stack
 
